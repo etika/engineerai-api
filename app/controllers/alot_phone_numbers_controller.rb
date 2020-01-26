@@ -20,8 +20,8 @@ class AlotPhoneNumbersController < ApplicationController
       end
     end
 
-    def update
-      @phone= AlotPhoneNumber.where(phone_number: params[:phone_number], allotted: false).first
+    def phones
+      @phone= AlotPhoneNumber.where(phone_number: params[:id], allotted: false).first
       if @phone.present?
          @phone.update_attributes(allotted: true)
          render :json => { message: "Requested phone number allocated", :status => 200 }
@@ -29,7 +29,7 @@ class AlotPhoneNumbersController < ApplicationController
       else
       	@phones = AlotPhoneNumber.where(allotted: false).sample
       	@phones.update_attributes(allotted:true)
-      	render :json=>{message: "A random unallotted number is given to you which is"+ @phones.phone_number, :status=> 200}
+      	render :json=>{message: "A random unallotted number is given to you which is "+ @phones.phone_number, :status=> 200}
 
        end
     end
