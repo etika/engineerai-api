@@ -1,25 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This README for engineer-ai-api test
 
-Things you may want to cover:
+1. first do rake db:migrate
+2. then do rake db:seed
+3. then running the server rails s
 
-* Ruby version
+The links to access the apis are
+ 1.http://localhost:3000/phones/:phone_number
+   will try to alot the number requested, if not allotted
+   else will alot a new unallotted number to the client
 
-* System dependencies
+ 2.http://localhost:3000/alot_phone_numbers
+   type-post
+   will alot a random phone number to the client
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# engineerai-api
+ 3.http://localhost:3000/alot_phone_numbers
+   type-get
+   will return the all the allotted phone numbers
